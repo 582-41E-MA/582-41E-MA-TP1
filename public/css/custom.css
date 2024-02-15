@@ -7,19 +7,21 @@
 .fa-shopping-cart {
     font-size: 2em; /* Ajuste la taille */
     color: #007bff; /* Couleur de l'icône */
-  }
+}
 
-  body{
-    font-family: "nerd-regular";
-  }
-  
-
-  .hero{
-    background-image: linear-gradient(to bottom right, #eeaadd,#f5c2e7,#b4befe,#a6e3a1 );
-    height: 30vh;
-    width: 100%;
-    display: flex;
-  }
+body{
+  font-family: "nerd-regular";
+}
 
 
- 
+.hero{
+  background-image: linear-gradient(to bottom right, #eeaadd,#f5c2e7,#b4befe,#a6e3a1 );
+  height: 40vh;
+  width: 100%;
+  display: flex;
+}
+
+.cat-logo{
+  width: 200px;
+}
+
