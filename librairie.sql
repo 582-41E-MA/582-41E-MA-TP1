@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `livre` (
   `titre` varchar(50) NOT NULL,
   `prix` double NOT NULL,
   `quantite` int NOT NULL,
+  `panier` TINYINT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `idLivre_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
