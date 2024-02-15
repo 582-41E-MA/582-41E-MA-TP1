@@ -19,6 +19,15 @@ class ExerciceController extends Controller
         return view('pay');
     } 
 
+
+    public function ajoutPanier(Livre $livre){
+
+        Livre::where('id', $livre["id"])->update(array('panier' => 1));
+        
+        //Placeholder: Est-ce que je redirige vers une page? Si oui laquelle? Sinon je met un view vert quel page?
+        return redirect()->route('list');
+    } 
+
     /**
      * Met à jour les quantités de livre
      */

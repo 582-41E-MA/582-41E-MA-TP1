@@ -9,7 +9,6 @@ class Livre extends Model
 {
     use HasFactory;
 
-
     /**
      * Je n'ai pas trop compris pourquoi exactement, mais public $timestamps = false; permet le update que j'ai fait de fonctionner. 
      * De ce que je crois comprendre, c'est parce que Laravel attend des valeurs quand la demande pour un update est faite. 
