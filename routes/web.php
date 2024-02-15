@@ -25,3 +25,6 @@ Route::get('/resume', [ExerciceController::class, 'resume']);
 Route::get('/', [ExerciceController::class, 'list']);
 Route::get('/show', [ExerciceController::class, 'show']);
 Route::get('/pay', [ExerciceController::class, 'pay']);
+
+/**placeholder to test stripe, not sure whether it works*/
+Route::post('/pay/{:id}', [ExerciceController::class, 'stripePost'])->name('pay.checkout');
