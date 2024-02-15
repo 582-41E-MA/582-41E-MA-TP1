@@ -7,20 +7,6 @@ use Illuminate\Http\Request;
 
 class ExerciceController extends Controller
 {
-    //test template
-    public function index(){
-        return view('index');
-    } 
-    public function resume(){
-        return view('resume');
-    } 
-    public function projects(){
-        return view('projects');
-    } 
-    public function contact(){
-        return view('contact');
-    } 
-
 
     ///////////realshit
     public function list(){
