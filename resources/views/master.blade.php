@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
     </head>
-    <body id="page-top">
+    <body id="page-top" class="d-flex flex-column min-vh-100">
         <header>
                <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
@@ -35,16 +35,16 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/">Acceuil</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pay">Payer son panier</a></li>
-                            <li class="nav-item"><i class="fa fa-shopping-cart"></i></li>
-                          
+                            <li class="nav-item">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#shoppingBasketModal">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-
         @yield('hero')
     <main class="flex-shrink-0">
      
@@ -57,11 +57,32 @@
         </div>
 
     </main>
-        <!-- FOOTER -->
 
-        <footer class="border-top">
-          <div>footer</div>
+        <!-- FOOTER -->
+        <footer class="mt-auto border-top">
+          <div class="fs-6 text-center">&copy;thecatstore</div>
         </footer>
+
+        <!-- Shopping Basket Modal -->
+        <div class="modal fade" id="shoppingBasketModal" tabindex="-1" aria-labelledby="shoppingBasketModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="shoppingBasketModalLabel">Shopping Basket</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Basket items will be loaded here -->
+                    </div>
+                    <div class="modal-footer">
+                       
+                        <a class="nav-link" href="pay" class="btn-payer">Payer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
        <!-- Bootstrap core JS-->
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

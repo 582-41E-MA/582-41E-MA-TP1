@@ -29,3 +29,7 @@ Route::get('/checkout', [ExerciceController::class, 'checkout'])->name('checkout
 
 /**placeholder to test stripe, not sure whether it works*/
 Route::post('/pay/{:id}', [ExerciceController::class, 'stripePost'])->name('pay.checkout');
+
+
+/*MODAL*/
+Route::get('/basket', 'BasketController@index')->name('basket.index');
