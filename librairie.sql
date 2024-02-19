@@ -27,12 +27,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `livre`
 --
 
-DROP TABLE IF EXISTS `livre`;
-CREATE TABLE IF NOT EXISTS `livre` (
+DROP TABLE IF EXISTS `livres`;
+CREATE TABLE IF NOT EXISTS `livres` (
   `id` int NOT NULL AUTO_INCREMENT,
   `titre` varchar(50) NOT NULL,
   `prix` double NOT NULL,
   `quantite` int NOT NULL,
+  `panier` TINYINT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `idLivre_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
