@@ -26,66 +26,36 @@ stupid red dot leave fur on owners clothes.</div>
 @section('content')
 
 
-
-@for(livre as livres)
-
-
-<!-- Experience Card 1-->
-<a href="show" class="text-decoration-none text-reset">
-  <div class="card shadow border-0 rounded-4 my-3 mx-5">
-    <div class="card-body p-5">
-      <div class="row align-items-center gx-5">
-        <div class="col text-center bg-light p-4 rounded-4  text-lg-start mb-4 mb-lg-0 content-wrapper">
-          <div class="image-wrapper">
-            <img src="{{ asset('images/catstorelogo.jpg') }}" alt="" style="width:150px;">
+  <!-- Experience Card -->
+  @foreach($livres as $livre)
+  <a href="show/{{$livre->id}}" class="text-decoration-none text-reset">
+    <div class="card shadow border-0 rounded-4 my-3 mx-5">
+      <div class="card-body p-5">
+        <div class="row align-items-center gx-5">
+          <div class="col text-center bg-light p-4 rounded-4  text-lg-start mb-4 mb-lg-0 content-wrapper">
+            <div class="image-wrapper">
+              <img src="{{ asset('images/catstorelogo.jpg') }}" alt="" style="width:150px;">
+            </div>
+            <div>
+              <p>{{$livre->titre}}</p>
+            </div>
           </div>
-          <div>
-            <p>Nom du chat</p>
+          <div class="col-lg-8">
+            <p>
+            {{$livre->description}}
+            </p>
           </div>
         </div>
-        <div class="col-lg-8">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex justify-content-end">
-          <button class="btn btn-primary">Ajouter au Panier</button>
+        <div class="row">
+          <div class="col d-flex justify-content-end">
+            <a href="ajoutPanier/{{$livre->id}}"><button class="btn btn-primary">Ajouter au Panier</button></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</a>
+  </a>
 
+  @endforeach
 
-
-<!-- Experience Card 2-->
-<a href="show" class="text-decoration-none text-reset">
-  <div class="card shadow border-0 rounded-4 my-3 mx-5">
-    <div class="card-body p-5">
-      <div class="row align-items-center gx-5">
-        <div class="col text-center bg-light p-4 rounded-4  text-lg-start mb-4 mb-lg-0 content-wrapper">
-          <div class="image-wrapper">
-            <img src="{{ asset('images/catstorelogo.jpg') }}" alt="" style="width:150px;">
-          </div>
-          <div>
-            <p>Nom du chat 2</p>
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex justify-content-end">
-          <button class="btn btn-primary">Ajouter au Panier</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</a>
 @endsection
 

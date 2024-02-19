@@ -19,8 +19,8 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/custom.css" rel="stylesheet" />
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 
         <!-- font awesome (moi) -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -57,11 +57,14 @@
         </div>
 
     </main>
-
+  
         <!-- FOOTER -->
         <footer class="mt-auto border-top">
           <div class="fs-6 text-center">&copy;thecatstore</div>
         </footer>
+
+
+
 
         <!-- Shopping Basket Modal -->
         <div class="modal fade" id="shoppingBasketModal" tabindex="-1" aria-labelledby="shoppingBasketModalLabel" aria-hidden="true">
@@ -73,10 +76,38 @@
                     </div>
                     <div class="modal-body">
                         <!-- Basket items will be loaded here -->
+                        @foreach($livres as $livre)
+                        @if($livre->panier == 1)
+
+                                <div class="card-body p-1 border rounded-4">
+                                    <div class="row gx-2">
+                                        <div class="col bg-light rounded-4 text-lg-start mb-4 mb-lg-0 content-wrapper">
+                                            <div class="image-wrapper">
+                                                <img src="{{ asset('images/catstorelogo.jpg') }}" alt="" style="width:100px;">
+                                            </div>
+                                            <div>
+                                            
+                                                <p>{{$livre->titre}}</p>
+                                            
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col d-flex justify-content-end">
+                                        <a href="ajoutPanier/{{$livre->id}}"><button class="btn btn-primary">Supprimer</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        @endif
+                        @endforeach
+                          
                     </div>
+
                     <div class="modal-footer">
-                       
-                        <a class="nav-link" href="pay" class="btn-payer">Payer</a>
+
+                        <a class="nav-link" href="pay" class="btn-payer border">Payer</a>
                     </div>
                 </div>
             </div>

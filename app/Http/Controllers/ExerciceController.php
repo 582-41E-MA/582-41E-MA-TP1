@@ -2,28 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\livre;
+use App\Models\Livre;
 use Illuminate\Http\Request;
 
 class ExerciceController extends Controller
 {
 
-    ///////////realshit
     public function list(){
-        return view('list');
+        $livres = Livre::select()->get();
+        return view('list', ["livres"=>$livres]);//
     } 
-    public function show(){
-        return view('show');
+
+    public function show($id){
+        $livres = Livre::select()->get();
+        $liv = Livre::select()->where('id', $id)->get();
+        return view('show', ["livres"=> $livres, "liv"=> $liv]);
     } 
+
     public function pay(){
         return view('pay');
     } 
 
+    public function ajoutPanier($id){
+       
+        $livre = Livre::select()->where('id', $id)->get();
 
-    public function ajoutPanier(Livre $livre){
+        // echo $livre[0]["panier"];
+        // die();
 
-        Livre::where('id', $livre["id"])->update(array('panier' => 1));
-        
+        if($livre[0]["panier"] == 0){
+
+            Livre::where('id', $id)->update(array('panier' => 1));
+        }
         //Placeholder: Est-ce que je redirige vers une page? Si oui laquelle? Sinon je met un view vert quel page?
         return redirect()->route('list');
     } 
@@ -53,6 +63,13 @@ class ExerciceController extends Controller
         
         return redirect()->route('list');
     } 
+
+
+
+    public function selectLivres(){
+       $livres = Livre::all();
+       return $livres;
+    }
 
     // public function contactForm(Request $request){
     //     //return $request;
