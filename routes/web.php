@@ -18,7 +18,7 @@ use App\Http\Controllers\ExerciceController;
 
 //////////////////////////////////////
 Route::get('/', [ExerciceController::class, 'list'])->name('list');
-Route::get('/show', [ExerciceController::class, 'show'])->name('show');
+Route::get('/show/{id}', [ExerciceController::class, 'show'])->name('show');
 Route::get('/pay', [ExerciceController::class, 'pay'])->name('pay');
 
 
@@ -33,3 +33,12 @@ Route::post('/pay/{:id}', [ExerciceController::class, 'stripePost'])->name('pay.
 
 /*MODAL*/
 Route::get('/basket', 'BasketController@index')->name('basket.index');
+
+
+
+
+Route::get('/livres', [ExerciceController::class, 'selectLivres']);
+
+
+Route::get('/ajoutPanier/{id}', [ExerciceController::class, 'ajoutPanier']);
+
