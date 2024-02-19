@@ -25,3 +25,21 @@ body{
   width: 200px;
 }
 
+.btn-payer{
+  border: 1px solid black;
+}
+
+
+
+.content-wrapper {
+  display: flex;
+  align-items: center; /* This centers the items vertically */
+  gap: 20px; /* Optional: adds space between the image and the title */
+}
+
+.image-wrapper {
+  background-color: #f8f9fa; /* Light background */
+  padding: 16px;
+  border-radius: 8px;
+}
+
