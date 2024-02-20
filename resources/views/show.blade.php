@@ -18,9 +18,14 @@
                <h4 class="mb-2">Prix: ${{$liv[0]["prix"]}}</h4>
                <div class="mb-3">
                   <label for="itemQuantity" class="form-label">Quantité:</label>
-                  <input type="number" id="itemQuantity" class="form-control" value="1" min="1">
+                  <input type="number" id="itemQuantity" class="form-control" value="0" min="0" max='{{$liv[0]["quantite"]}}'>
                </div>
-               <a href="../ajoutPanier/{{$liv[0]["id"]}}"><button type="button" class="btn btn-primary">Ajouter au panier</button></a>
+               {{-- si la quantité est plus que 0, on permet d'ajouter au panier; sinon, on affiche l'info --}}
+               @if ( $liv[0]["quantite"] > 0 )
+               <a class="btn btn-primary" href="../ajoutPanier/{{$liv[0]['id']}}">Ajouter au panier</a>
+               @else
+               <button class="btn btn-info" disabled>pas disponible maintenant</button>
+               @endif
          </div>
       </div>
    </div>
