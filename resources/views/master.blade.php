@@ -76,8 +76,7 @@
                     </div>
                     <div class="modal-body">
                         <!-- Basket items will be loaded here -->
-                        @foreach($livres as $livre)
-                        @if($livre->panier == 1)
+                        @foreach($panier as $p)
 
                                 <div class="card-body p-1 border rounded-4">
                                     <div class="row gx-2">
@@ -87,7 +86,7 @@
                                             </div>
                                             <div>
                                             
-                                                <p>{{$livre->titre}}</p>
+                                                <p>{{$p->titre}} x {{$p->panier}}</p>
                                             
                                             </div>
                                         </div>
@@ -95,19 +94,21 @@
                                     </div>
                                     <div class="row">
                                         <div class="col d-flex justify-content-end">
-                                        <a href="ajoutPanier/{{$livre->id}}"><button class="btn btn-primary">Supprimer</button></a>
+                                        <form method="POST" action="{{ route('panier.vider', $p->id) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">Supprimer</button>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
 
-                        @endif
                         @endforeach
                           
                     </div>
 
                     <div class="modal-footer">
 
-                        <a class="nav-link" href="pay" class="btn-payer border">Payer</a>
+                        <a class="nav-link" href="{{route('pay')}}" class="btn-payer border">Payer</a>
                     </div>
                 </div>
             </div>

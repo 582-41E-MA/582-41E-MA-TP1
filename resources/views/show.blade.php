@@ -13,19 +13,22 @@
          </div>
          <div class="col-md-6">
                <!-- Item Information -->
-               <h2 class="mb-3">{{$liv[0]["titre"]}}</h2>
-               <p class="mb-4">{{$liv[0]["description"]}}</p>
-               <h4 class="mb-2">Prix: ${{$liv[0]["prix"]}}</h4>
-               <div class="mb-3">
-                  <label for="itemQuantity" class="form-label">Quantité:</label>
-                  <input type="number" id="itemQuantity" class="form-control" value="0" min="0" max='{{$liv[0]["quantite"]}}'>
-               </div>
-               {{-- si la quantité est plus que 0, on permet d'ajouter au panier; sinon, on affiche l'info --}}
-               @if ( $liv[0]["quantite"] > 0 )
-               <a class="btn btn-primary" href="../ajoutPanier/{{$liv[0]['id']}}">Ajouter au panier</a>
-               @else
-               <button class="btn btn-info" disabled>pas disponible maintenant</button>
-               @endif
+               <h2 class="mb-3">{{$livre->titre}}</h2>
+               <p class="mb-4">{{$livre->description}}</p>
+               <h4 class="mb-2">Prix: ${{$livre->prix}}</h4>
+               <form method="POST" action="{{ route('panier.ajouter', $livre->id) }}">
+                  @csrf
+                  <div class="mb-3">
+                     <label for="itemQuantity" class="form-label">Quantité:</label>
+                     <input name="panier" type="number" id="itemQuantity" class="form-control" value="0" min="0" max='{{$livre->quantite}}'>
+                  </div>
+                  {{-- si la quantité disponible est plus que 0, on permet d'ajouter au panier; sinon, on affiche l'info --}}
+                  @if ( $livre->quantite > 0 )
+                  <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+                  @else
+                  <button class="btn btn-info" disabled>pas disponible maintenant</button>
+                  @endif
+               </form>
          </div>
       </div>
    </div>
