@@ -48,7 +48,12 @@ stupid red dot leave fur on owners clothes.</div>
         </div>
         <div class="row">
           <div class="col d-flex justify-content-end">
-            <a href="ajoutPanier/{{$livre->id}}"><button class="btn btn-primary">Ajouter au Panier</button></a>
+            {{-- si la quantité est plus que 0, on permet d'ajouter au panier; sinon, on affiche l'info --}}
+            @if ($livre->quantite > 0)
+            <a class="btn btn-primary" href="ajoutPanier/{{$livre->id}}">Ajouter au Panier</a>
+            @else
+            <button class="btn btn-info" disabled>pas disponible maintenant</button>
+            @endif
           </div>
         </div>
       </div>

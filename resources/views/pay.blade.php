@@ -5,8 +5,7 @@
 
 @section('content')
    <div>
-    <br><br><br>
-    ici on pourra checkout de son panier
+    <h3>{{ $sum }} CAD à payer</h3>
    </div>
 @endsection
 
